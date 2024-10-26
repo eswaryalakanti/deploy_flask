@@ -3,12 +3,13 @@ import joblib
 import numpy as np
 from datetime import datetime
 from custom_transformers import BinaryClassifierTransformer
+import pickle
 
 app = Flask(__name__)
 
 # Load the model (make sure this path is correct)
 with open('final_pipeline.pkl', 'rb') as f:
-    model = joblib.load(f)
+    model = pickle.load(f)
 
 @app.route('/')
 def index():
